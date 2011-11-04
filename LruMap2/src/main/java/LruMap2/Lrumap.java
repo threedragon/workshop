@@ -20,9 +20,19 @@ public class Lrumap {
 	public void put(String string, String string2) {
 		// TODO 自動生成されたメソッド・スタブ
 		map.put(string , string2);
+
+		if (map.size() > sizeNum)
+		{
+			map.remove("A");
+		}
 	}
+	
 	public String get(String string) {
 		// TODO 自動生成されたメソッド・スタブ
 		return map.get(string);
+
 	}
+
+
+
 }

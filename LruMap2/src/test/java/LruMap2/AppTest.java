@@ -53,4 +53,16 @@ public class AppTest
     	assertEquals("testB",lru.get("B"));
     }
 
+    public void testPut3Elements()
+    {
+    	Lrumap lru = new Lrumap(1);
+    	lru.put("A", "testA");
+    	lru.put("B", "testB");
+    	assertNull(lru.get("A"));
+
+    	Lrumap lru2 = new Lrumap(1);
+    	lru.put("B", "testB");
+    	lru.put("A", "testA");
+    	assertNull(lru.get("B"));
+    }
 }

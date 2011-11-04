@@ -61,8 +61,14 @@ public class AppTest
     	assertNull(lru.get("A"));
 
     	Lrumap lru2 = new Lrumap(1);
-    	lru.put("B", "testB");
-    	lru.put("A", "testA");
-    	assertNull(lru.get("B"));
+    	lru2.put("B", "testB");
+    	lru2.put("A", "testA");
+    	assertNull(lru2.get("B"));
+    	
+    	Lrumap lru3 = new Lrumap(1);
+    	lru3.put("A", "testA");
+    	lru3.put("B", "testB");
+    	lru3.put("C", "testC");
+    	assertNull(lru3.get("B"));
     }
 }

@@ -64,11 +64,28 @@ public class AppTest
     	lru2.put("B", "testB");
     	lru2.put("A", "testA");
     	assertNull(lru2.get("B"));
-    	
+
     	Lrumap lru3 = new Lrumap(1);
     	lru3.put("A", "testA");
     	lru3.put("B", "testB");
     	lru3.put("C", "testC");
     	assertNull(lru3.get("B"));
     }
+
+    public void testTouch()
+    {
+    	Lrumap lru = new Lrumap(2);
+    	lru.put("1","dragon");
+    	lru.put("2", "liger");
+    	lru.get("1");
+    	lru.put("3", "poseidon");
+    	assertNull(lru.get("2"));
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testSize()
+    {
+    	Lrumap lru = new Lrumap(0);
+    }
+
 }

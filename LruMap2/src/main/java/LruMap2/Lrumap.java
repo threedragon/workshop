@@ -35,6 +35,12 @@ public class Lrumap {
 
 	public String get(String string) {
 		// TODO 自動生成されたメソッド・スタブ
+		int num = list.indexOf(string);
+		if (num != -1)
+		{
+			list.remove(num);
+			list.add(string);
+		}
 		return map.get(string);
 
 	}

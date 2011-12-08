@@ -2,6 +2,7 @@ package LruMap2;
 
 
 import org.junit.Test;
+import java.lang.Thread;
 
 import static org.junit.Assert.*;
 
@@ -91,7 +92,7 @@ public class AppTest
     	assertNull(lru.get("A"));
 
     }
-    
+
     @Test(expected = IllegalArgumentException.class)
     public void testDynamicSize1()
     {
@@ -101,5 +102,26 @@ public class AppTest
 
     	lru.ModifySize(-1);
     }
+
+    @Test
+    public void testTimestamp()
+    {
+    	Lrumap<String, String> lru = new Lrumap<String, String>(2);
+    	lru.put("A","iii");
+    	lru.put("B", "kkk");
+
+    	//3秒
+    	try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+
+
+    	assertNull(lru.get("A"));
+
+    }
+
 
 }

@@ -10,6 +10,7 @@ public class Lrumap<K,V> {
 	private int sizeNum;
 	private Map<K,V> datamap;
 	private List<K> history;
+	private List<Long> timestamp;
 
 	public Lrumap(int in_size)
 	{
@@ -67,6 +68,16 @@ public class Lrumap<K,V> {
 		}
 		return overFlag;
 
+	}
+	
+	private long getCurrentTime() {
+		long now = System.currentTimeMillis();
+		
+		return now;
+	}
+	
+	private void delTimeup() {
+		
 	}
 
 
